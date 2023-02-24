@@ -38,7 +38,7 @@ public class AuthController {
         String jwtToken= jwtTokenProvider.generateJwtToken(auth);
         return jwtToken;
     }
-    @PostMapping("/register")
+    @PostMapping()
     public ResponseEntity<String> register(@RequestBody UserRequest registerRequest){
         if(userService.getOneUserByUsername(registerRequest.getUsername())!= null){
             return new ResponseEntity<>("Username already defined", HttpStatus.BAD_REQUEST);
